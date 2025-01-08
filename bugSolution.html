@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Uncommon HTML Bug Solution</title>
+</head>
+<body>
+  <div id="myDiv">
+    This text should be visible.
+    <button id="myButton">Click Me</button>
+  </div>
+
+  <script>
+    const myDiv = document.getElementById("myDiv");
+    const myButton = document.getElementById("myButton");
+
+    myButton.addEventListener('click', function() {
+      alert('Button clicked!');
+    });
+
+    // Correctly replace content without removing event listeners
+    const newContent = document.createElement('p');
+    newContent.textContent = 'This text replaces the content correctly.';
+    myDiv.innerHTML = ''; // Clear existing content
+    myDiv.appendChild(newContent);
+  </script>
+</body>
+</html>
